@@ -1,0 +1,19 @@
+{
+    "name": "nobi0311/morusa",
+    "authors": [
+        {
+            "name": "nobi",
+            "email": "subnobinobi@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "nobita0311\\Morusa\\": "src/",
+            "nobita0311\\MorusaTest\\": "tests/"
+        }
+    }
+}
