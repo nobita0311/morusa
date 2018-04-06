@@ -121,6 +121,7 @@ class ja extends Locale {
         $split = array_map(array($this, 'convert_kana'), $_split);
         $return = "";
         foreach ($split as $char) {
+            //コードから文字を検索
             if (isset($this->codes[$char])) {
                 $code = $this->codes[$char];
                 $string = $this->to_morse($code);
@@ -133,9 +134,26 @@ class ja extends Locale {
     public function fromMorseCode($string) {
         $split = $this->split_morse($string);
         $return = "";
-        foreach ($split as $code) {
+        $next_skip = false;
+        foreach ($split as $key => $code) {
+
+            if ($next_skip) {
+                //前の文字が濁音半濁音だったのでスキップ
+                $next_skip = false;
+                continue;
+            }
+
+            //次の文字
+            $next = isset($split[$key + 1]) ? $split[$key + 1] : null;
+            $next_char = $this->from_morse($code . " " . $next);
+
+            //濁音半濁音かどうか
+            if ($next && array_search($next_char, $this->codes, true)) {
+                $code = $code . " " . $next;
+                $next_skip = true;
+            }
             $_code = $this->from_morse($code);
-            $char = array_search($_code, $this->codes);
+            $char = array_search($_code, $this->codes, true);
             if ($char) {
                 $return .= $char;
             }
