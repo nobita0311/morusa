@@ -47,6 +47,7 @@ class TenzyTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->Morusa->toMorseCode("A"), ".-");
         $this->assertEquals($this->Morusa->toMorseCode("B"), "-...");
         $this->assertEquals($this->Morusa->toMorseCode("AB"), ".- -...");
+        $this->assertEquals($this->Morusa->toMorseCode("ab"), ".- -...");
 
         $this->assertEquals($this->Morusa->fromMorseCode(".-"), "A");
         $this->assertEquals($this->Morusa->fromMorseCode("-..."), "B");
