@@ -26,7 +26,7 @@ class TenzyTest extends \PHPUnit_Framework_TestCase {
      * つかいかた
      */
     public function test_how_to_use() {
-        $this->Morusa = new Morusa("jp");
+        $this->Morusa = new Morusa("ja");
         $this->assertEquals($this->Morusa->toMorseCode("ア"), "－－・－－");
         $this->assertEquals($this->Morusa->toMorseCode("い"), "・－");
         $this->assertEquals($this->Morusa->toMorseCode("アい"), "－－・－－　・－");

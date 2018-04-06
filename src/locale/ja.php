@@ -4,7 +4,7 @@ namespace nobita0311\Morusa\Locale;
 
 use nobita0311\Morusa\Locale;
 
-class jp extends Locale {
+class ja extends Locale {
 
     //short point
     protected $short = '・';
