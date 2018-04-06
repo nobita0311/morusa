@@ -15,6 +15,18 @@ abstract class Locale {
 
     abstract function fromMorseCode($string);
 
+    public function setShort($string) {
+        $this->short = $string;
+    }
+
+    public function setLong($string) {
+        $this->long = $string;
+    }
+
+    public function setSpace($string) {
+        $this->space = $string;
+    }
+
     protected function split_string($strings) {
         return preg_split("//u", $strings, -1, PREG_SPLIT_NO_EMPTY);
     }

@@ -9,6 +9,7 @@ class Morusa {
 
     public function __construct($locale = 'en') {
         $this->setLocale($locale);
+        return $this;
     }
 
     /**
@@ -21,10 +22,24 @@ class Morusa {
         if (class_exists($class_name, true)) {
             $this->locale = $locale;
             $this->provider = new $class_name;
-            return new $class_name;
         } else {
             //err
         }
+        return $this;
+    }
+
+    public function setShort($string) {
+        $this->provider->setShort($string);
+        return $this;
+    }
+
+    public function setLong($string) {
+        $this->provider->setLong($string);
+        return $this;
+    }
+
+    public function setSpace($string) {
+        $this->provider->setSpace($string);
         return $this;
     }
 

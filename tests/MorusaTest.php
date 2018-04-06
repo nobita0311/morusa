@@ -31,13 +31,13 @@ class TenzyTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->Morusa->toMorseCode("い"), "・－");
         $this->assertEquals($this->Morusa->toMorseCode("アい"), "－－・－－　・－");
         $this->assertEquals($this->Morusa->toMorseCode("こんにちは。"), "－－－－　・－・－・　－・－・　・・－・　－・・・　・－・－・・");
-        
+
         $this->assertEquals($this->Morusa->toMorseCode("ゴザ"), "－－－－　・・　－・－・－　・・");
-        
+
         $this->assertEquals($this->Morusa->fromMorseCode("－－・－－"), "ア");
         $this->assertEquals($this->Morusa->fromMorseCode("・－"), "イ");
         $this->assertEquals($this->Morusa->fromMorseCode("－－・－－　・－"), "アイ");
-        
+
         $this->assertEquals($this->Morusa->fromMorseCode("－－－－　・－・－・　－・－・　・・－・　－・・・　・－・－・・"), "コンニチハ。");
         $this->assertEquals($this->Morusa->fromMorseCode("－－－－　・・　－・－・－　・・"), "ゴザ");
     }
@@ -51,6 +51,24 @@ class TenzyTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->Morusa->fromMorseCode(".-"), "A");
         $this->assertEquals($this->Morusa->fromMorseCode("-..."), "B");
         $this->assertEquals($this->Morusa->fromMorseCode(".- -..."), "AB");
+    }
+
+    public function test_method_chain() {
+        $this->Morusa = new Morusa();
+        $output = (new Morusa())
+                ->setLocale("ja")
+                ->setShort("★")
+                ->setLong("☆")
+                ->setSpace("＊")
+                ->toMorseCode("キラキラボシ");
+        $this->assertEquals($output, "☆★☆★★＊★★★＊☆★☆★★＊★★★＊☆★★＊★★＊☆☆★☆★");
+        $output = (new Morusa())
+                ->setLocale("ja")
+                ->setShort("★")
+                ->setLong("☆")
+                ->setSpace("＊")
+                ->fromMorseCode("☆★☆★★＊★★★＊☆★☆★★＊★★★＊☆★★＊★★＊☆☆★☆★");
+        $this->assertEquals($output, "キラキラボシ");
     }
 
 }
