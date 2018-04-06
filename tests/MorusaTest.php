@@ -30,10 +30,21 @@ class TenzyTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->Morusa->toMorseCode("ア"), "－－・－－");
         $this->assertEquals($this->Morusa->toMorseCode("い"), "・－");
         $this->assertEquals($this->Morusa->toMorseCode("アい"), "－－・－－　・－");
-        
+
         $this->assertEquals($this->Morusa->fromMorseCode("－－・－－"), "ア");
         $this->assertEquals($this->Morusa->fromMorseCode("・－"), "イ");
         $this->assertEquals($this->Morusa->fromMorseCode("－－・－－　・－"), "アイ");
+    }
+
+    public function test_how_to_use_en() {
+        $this->Morusa = new Morusa("en");
+        $this->assertEquals($this->Morusa->toMorseCode("A"), ".-");
+        $this->assertEquals($this->Morusa->toMorseCode("B"), "-...");
+        $this->assertEquals($this->Morusa->toMorseCode("AB"), ".- -...");
+
+        $this->assertEquals($this->Morusa->fromMorseCode(".-"), "A");
+        $this->assertEquals($this->Morusa->fromMorseCode("-..."), "B");
+        $this->assertEquals($this->Morusa->fromMorseCode(".- -..."), "AB");
     }
 
 }

@@ -7,13 +7,13 @@ use nobita0311\Morusa\Locale;
 class jp extends Locale {
 
     //short point
-    private $short = '・';
+    protected $short = '・';
     //long point
-    private $long = '－';
+    protected $long = '－';
     //spacer
-    private $space = '　';
+    protected $space = '　';
     //
-    private $codes = array(
+    protected $codes = array(
         'イ' => '01',
         'ロ' => '0101',
         'ハ' => '1000',
@@ -65,26 +65,6 @@ class jp extends Locale {
         //
         'ー' => '01010',
     );
-
-    public function split_string($strings) {
-        return preg_split("//u", $strings, -1, PREG_SPLIT_NO_EMPTY);
-    }
-
-    public function split_morse($string) {
-        return explode($this->space, $string);
-    }
-
-    private function convert_kana($char) {
-        return mb_convert_kana($char, "KVC");
-    }
-
-    private function to_morse($code) {
-        return str_replace(array('0', '1'), array($this->short, $this->long), $code);
-    }
-
-    private function from_morse($char) {
-        return str_replace(array($this->short, $this->long), array('0', '1'), $char);
-    }
 
     public function toMorseCode($string) {
         $_split = $this->split_string($string);
