@@ -39,6 +39,17 @@ class en extends Locale {
         'X' => '1001',
         'Y' => '1011',
         'Z' => '1100',
+        //数字
+        '1' => '01111',
+        '2' => '00111',
+        '3' => '00011',
+        '4' => '00001',
+        '5' => '00000',
+        '6' => '10000',
+        '7' => '11000',
+        '8' => '11100',
+        '9' => '11110',
+        '0' => '11111',
     );
 
     public function toMorseCode($string) {
@@ -63,7 +74,7 @@ class en extends Locale {
         $return = "";
         foreach ($split as $code) {
             $_code = $this->from_morse($code);
-            $char = array_search($_code, $this->codes);
+            $char = array_search($_code, $this->codes, true);
             if ($char) {
                 $return .= $char;
             }
