@@ -5,7 +5,7 @@ morse code translator
 
 ## Description
 
-
+まだつくりとちゅう
 
 
 ## Usage
@@ -13,8 +13,9 @@ morse code translator
 ```
 use nobita0311\Morusa\Morusa;
 
-$morusa = new Morusa('あ');
-$morusa->toString() // ⠁ が出力されるよ
+$morusa = new Morusa('ja');
+$morusa->toMorseCode('あ') // －－・－－ が出力されるよ
+
 
 ```
 
