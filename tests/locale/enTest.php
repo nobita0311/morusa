@@ -21,12 +21,15 @@ class enTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($morusa->toMorseCode("ab"), ".- -...");
 
         $this->assertEquals($morusa->toMorseCode("123"), ".---- ..--- ...--");
+        
+        $this->assertEquals($morusa->toMorseCode(".,?!-/@()"), ".-.-.- --..-- ..--.. -.-.-- -....- -..-. .--.-. -.--. -.--.-");
 
         $this->assertEquals($morusa->fromMorseCode(".-"), "A");
         $this->assertEquals($morusa->fromMorseCode("-..."), "B");
         $this->assertEquals($morusa->fromMorseCode(".- -..."), "AB");
 
         $this->assertEquals($morusa->fromMorseCode(".---- ..--- ...--"), "123");
+        $this->assertEquals($morusa->fromMorseCode(".-.-.- --..-- ..--.. -.-.-- -....- -..-. .--.-. -.--. -.--.-"), ".,?!-/@()");
     }
 
 }
