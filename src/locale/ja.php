@@ -128,7 +128,7 @@ class ja extends Locale {
                 $return .= $string . $this->space;
             }
         }
-        return preg_replace('/[ 　]+$/u', '', $return);
+        return preg_replace('/[' . $this->space . ']+$/u', '', $return);
     }
 
     public function fromMorseCode($string) {
