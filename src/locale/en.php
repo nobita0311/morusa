@@ -43,6 +43,10 @@ class en extends Locale {
 
     public function toMorseCode($string) {
         $split = $this->split_string($string);
+
+        //大文字
+        $split = array_map('strtoupper', $split);
+
         $return = "";
         foreach ($split as $char) {
             if (isset($this->codes[$char])) {
