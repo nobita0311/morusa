@@ -15,5 +15,13 @@
             "nobita0311\\Morusa\\": "src/",
             "nobita0311\\MorusaTest\\": "tests/"
         }
+    },
+     "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ],
+        "coverage": [
+            "vendor/bin/phpunit --coverage-html coverage"
+        ]
     }
 }

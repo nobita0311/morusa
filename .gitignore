@@ -33,3 +33,4 @@ Thumbs.db
 /nbproject
 ._*
 .ruby-version
+coverage
