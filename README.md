@@ -1,7 +1,8 @@
 
 # Morusa
-
 morse code translator
+
+[![Build Status](https://travis-ci.org/nobita0311/morusa.svg?branch=master)](https://travis-ci.org/nobita0311/morusa)
 
 ## Description
 
