@@ -28,11 +28,11 @@ abstract class Locale {
     }
 
     protected function to_morse($code) {
-        return str_replace(array('0', '1'), array($this->short, $this->long), $code);
+        return str_replace(array('0', '1', ' '), array($this->short, $this->long, $this->space), $code);
     }
 
     protected function from_morse($char) {
-        return str_replace(array($this->short, $this->long), array('0', '1'), $char);
+        return str_replace(array($this->short, $this->long, $this->space), array('0', '1', ' '), $char);
     }
 
 }
