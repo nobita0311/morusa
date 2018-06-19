@@ -15,6 +15,7 @@
     "autoload": {
         "psr-4": {
             "nobita0311\\Morusa\\": "src/",
+            "nobita0311\\Morusa\\Locale": "src/locale",
             "nobita0311\\MorusaTest\\": "tests/"
         }
     },

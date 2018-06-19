@@ -18,7 +18,7 @@ class Morusa {
      * @return $this
      */
     public function setLocale($locale) {
-        $class_name = 'nobita0311\Morusa\\' . sprintf('Locale\%s', $locale);
+        $class_name = 'nobita0311\\Morusa\\' . sprintf('Locale\%s', $locale);
         if (class_exists($class_name, true)) {
             $this->locale = $locale;
             $this->provider = new $class_name;
